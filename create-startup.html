@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UoS — Create a Startup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Header -->
+  <header class="sticky top-0 z-40">
+    <div class="bg-white/80 backdrop-blur shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-fuchsia-500 via-indigo-500 to-blue-500 grid place-items-center text-white font-bold">U</div>
+          <span class="font-extrabold tracking-tight">University of Startup</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="dashboard.html" class="hover:text-red-600">Dashboard</a>
+          <a href="performance.html" class="hover:text-red-600">Startup Performance</a>
+          <a href="network.html" class="hover:text-red-600">Startup Network</a>
+          <span class="text-indigo-600 font-semibold">Create Startup</span>
+        </nav>
+        <div class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-full bg-indigo-600 grid place-items-center text-white text-sm font-semibold">AK</div>
+          <button class="text-sm hover:text-red-600">Aidil Khairi ▾</button>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gradient-to-r from-indigo-800 to-blue-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-11 flex items-center gap-6 text-sm">
+        <span class="font-medium">Create your venture for the Special Semester</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid lg:grid-cols-3 gap-8">
+
+      <!-- Left: Form -->
+      <form id="startupForm" class="lg:col-span-2 space-y-6">
+
+        <!-- Basics -->
+        <section class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+          <h2 class="text-lg font-semibold">Basics</h2>
+          <div class="mt-4 grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-slate-600">Startup Name</label>
+              <input id="name" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-600" placeholder="e.g., GardenAI" required />
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Short Tagline</label>
+              <input id="tagline" maxlength="80" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-600" placeholder="One line value prop (max 80 chars)" />
+              <div id="tagCounter" class="text-xs text-slate-400 mt-1 text-right">0 / 80</div>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="text-sm text-slate-600">Logo (image preview only)</label>
+              <div class="mt-1 flex items-center gap-4">
+                <input id="logo" type="file" accept="image/*" class="block w-full text-sm text-slate-600 file:mr-4 file:rounded-lg file:border-0 file:bg-indigo-50 file:px-4 file:py-2.5 file:text-indigo-700 hover:file:bg-indigo-100" />
+                <img id="logoPreview" class="h-12 w-12 rounded-xl object-cover hidden" alt="Logo preview" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Problem / Solution -->
+        <section class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+          <h2 class="text-lg font-semibold">Problem & Solution</h2>
+          <div class="mt-4 grid gap-4">
+            <div>
+              <label class="text-sm text-slate-600">The Problem</label>
+              <textarea id="problem" rows="3" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-600" placeholder="What pain are you solving? For whom?"></textarea>
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Your Solution</label>
+              <textarea id="solution" rows="3" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-600" placeholder="How do you solve it 10x better?"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- Market -->
+        <section class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+          <h2 class="text-lg font-semibold">Market & Stage</h2>
+          <div class="mt-4 grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-slate-600">Target Customer</label>
+              <input id="customer" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-600" placeholder="e.g., small hydroponic farms" />
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Stage</label>
+              <select id="stage" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-600">
+                <option>Idea</option>
+                <option>MVP</option>
+                <option>Beta</option>
+                <option>Revenue</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="text-sm text-slate-600">Tags / Domains</label>
+              <div class="mt-2 flex flex-wrap gap-2 text-sm">
+                <button type="button" class="tag px-3 py-1.5 rounded-lg border border-slate-200 hover:border-red-300 hover:text-red-600">AI</button>
+                <button type="button" class="tag px-3 py-1.5 rounded-lg border border-slate-200 hover:border-red-300 hover:text-red-600">Fintech</button>
+                <button type="button" class="tag px-3 py-1.5 rounded-lg border border-slate-200 hover:border-red-300 hover:text-red-600">Climate</button>
+                <button type="button" class="tag px-3 py-1.5 rounded-lg border border-slate-200 hover:border-red-300 hover:text-red-600">IoT</button>
+                <button type="button" class="tag px-3 py-1.5 rounded-lg border border-slate-200 hover:border-red-300 hover:text-red-600">Health</button>
+                <button type="button" class="tag px-3 py-1.5 rounded-lg border border-slate-200 hover:border-red-300 hover:text-red-600">EdTech</button>
+                <input id="customTag" placeholder="add tag…" class="px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-sm outline-none focus:ring-2 focus:ring-indigo-600" />
+              </div>
+              <div id="tagList" class="mt-3 flex flex-wrap gap-2 text-xs"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Team & Equity -->
+        <section class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+          <h2 class="text-lg font-semibold">Founding Team & Equity</h2>
+          <p class="text-xs text-slate-500 mt-1">This is a planning aid only. You can change later.</p>
+          <div class="mt-4 grid md:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm text-slate-600">Founder A</label>
+              <input id="eqA" type="number" min="0" max="100" value="40" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" />
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Founder B</label>
+              <input id="eqB" type="number" min="0" max="100" value="35" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" />
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Founder C</label>
+              <input id="eqC" type="number" min="0" max="100" value="15" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" />
+            </div>
+            <div class="md:col-span-3">
+              <label class="text-sm text-slate-600">Advisor / ESOP</label>
+              <input id="eqPool" type="number" min="0" max="100" value="10" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" />
+              <div class="mt-2 text-sm">
+                Total: <span id="eqTotal" class="font-semibold">100%</span>
+                <span id="eqWarn" class="ml-2 text-rose-600 hidden">Total must be 100%</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Hiring -->
+        <section class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+          <h2 class="text-lg font-semibold">Hiring Needs (optional)</h2>
+          <div class="mt-4 grid sm:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm text-slate-600">Role</label>
+              <select id="hireRole" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm">
+                <option>Engineer</option>
+                <option>Designer</option>
+                <option>Growth</option>
+                <option>Ops</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Commitment</label>
+              <select id="hireCommit" class="mt-1 w-full rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm">
+                <option>Part-time</option>
+                <option>Full-time (student)</option>
+                <option>Internship</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Equity Offer (range)</label>
+              <input id="hireEquity" type="text" placeholder="e.g., 0.25–1.0%" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Milestones -->
+        <section class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+          <h2 class="text-lg font-semibold">Milestones</h2>
+          <div class="mt-4 grid md:grid-cols-3 gap-4">
+            <div>
+              <label class="text-sm text-slate-600">Milestone 1</label>
+              <input id="m1" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" placeholder="e.g., MVP ready" />
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Milestone 2</label>
+              <input id="m2" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" placeholder="e.g., 50 pilot users" />
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Milestone 3</label>
+              <input id="m3" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" placeholder="e.g., RM1k MRR" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Links -->
+        <section class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+          <h2 class="text-lg font-semibold">Links</h2>
+          <div class="mt-4 grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-sm text-slate-600">Pitch Deck URL</label>
+              <input id="deck" type="url" placeholder="https://…" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" />
+            </div>
+            <div>
+              <label class="text-sm text-slate-600">Prototype / Repo URL</label>
+              <input id="repo" type="url" placeholder="https://…" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm" />
+            </div>
+          </div>
+        </section>
+
+        <!-- Actions -->
+        <div class="flex flex-wrap gap-3">
+          <button type="button" id="previewBtn" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-5 py-2.5 text-sm hover:border-red-300 hover:text-red-600">
+            Preview Card
+          </button>
+          <button type="submit" class="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-white text-sm font-semibold shadow hover:bg-indigo-700">
+            Submit to Batch
+          </button>
+        </div>
+      </form>
+
+      <!-- Right: Live Preview -->
+      <aside class="space-y-6">
+        <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+          <h3 class="font-semibold">Live Preview</h3>
+          <article id="previewCard" class="mt-4 rounded-2xl bg-white p-5 ring-1 ring-slate-100 shadow-sm">
+            <div class="flex items-start gap-4">
+              <div id="previewLogo" class="h-12 w-12 rounded-xl bg-gradient-to-br from-fuchsia-500 to-indigo-600 grid place-items-center text-white font-bold">U</div>
+              <div class="flex-1">
+                <div class="flex items-start justify-between">
+                  <h4 id="previewName" class="font-semibold">Your Startup</h4>
+                  <span id="previewStage" class="text-xs rounded-full bg-emerald-50 text-emerald-700 px-2 py-0.5 ring-1 ring-emerald-100">Stage</span>
+                </div>
+                <p id="previewTag" class="mt-1 text-sm text-slate-600">Tagline appears here.</p>
+                <div id="previewTags" class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="rounded-full bg-slate-100 px-2.5 py-1">AI</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+          <h3 class="font-semibold">Tips</h3>
+          <ul class="mt-3 space-y-2 text-sm text-slate-600 list-disc pl-5">
+            <li>Be specific about the problem and who has it.</li>
+            <li>Quantify milestones. Dates beat vague goals.</li>
+            <li>Keep equity totals to exactly 100%.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4">
+    <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-full bg-emerald-100 text-emerald-700 grid place-items-center">✓</div>
+        <h4 class="text-lg font-semibold">Submitted!</h4>
+      </div>
+      <p class="mt-3 text-sm text-slate-600">Your startup was submitted to the Special Semester batch. You can manage it from “Startup Performance”.</p>
+      <div class="mt-5 flex justify-end gap-3">
+        <a href="performance.html" class="rounded-lg bg-indigo-600 px-4 py-2 text-white text-sm hover:bg-indigo-700">Go to Performance</a>
+        <button id="closeModal" class="rounded-lg border border-slate-200 px-4 py-2 text-sm hover:border-red-300 hover:text-red-600">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tiny client-side interactions -->
+  <script>
+    // Tagline counter
+    const tagline = document.getElementById('tagline');
+    const tagCounter = document.getElementById('tagCounter');
+    tagline.addEventListener('input', () => tagCounter.textContent = `${tagline.value.length} / 80`);
+
+    // Logo preview
+    const logoInput = document.getElementById('logo');
+    const logoPreview = document.getElementById('logoPreview');
+    const previewLogo = document.getElementById('previewLogo');
+    logoInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const url = URL.createObjectURL(file);
+      logoPreview.src = url;
+      logoPreview.classList.remove('hidden');
+      previewLogo.style.background = 'none';
+      previewLogo.textContent = '';
+      previewLogo.style.backgroundImage = `url(${url})`;
+      previewLogo.style.backgroundSize = 'cover';
+      previewLogo.style.backgroundPosition = 'center';
+    });
+
+    // Tag chips (selectable + custom)
+    const tagList = document.getElementById('tagList');
+    const customTag = document.getElementById('customTag');
+    function addTag(text) {
+      const chip = document.createElement('span');
+      chip.className = 'inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1';
+      chip.innerHTML = `<span>${text}</span><button type="button" class="text-slate-400 hover:text-rose-600">✕</button>`;
+      chip.querySelector('button').onclick = () => chip.remove();
+      tagList.appendChild(chip);
+      renderPreviewTags();
+    }
+    document.querySelectorAll('.tag').forEach(btn => {
+      btn.addEventListener('click', () => addTag(btn.textContent.trim()));
+    });
+    customTag.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && customTag.value.trim()) {
+        e.preventDefault();
+        addTag(customTag.value.trim());
+        customTag.value = '';
+      }
+    });
+
+    // Equity total
+    const eqInputs = ['eqA','eqB','eqC','eqPool'].map(id => document.getElementById(id));
+    const eqTotal = document.getElementById('eqTotal');
+    const eqWarn = document.getElementById('eqWarn');
+    function calcEq() {
+      const total = eqInputs.reduce((s,i)=> s + (+i.value||0), 0);
+      eqTotal.textContent = `${total}%`;
+      eqWarn.classList.toggle('hidden', total === 100);
+    }
+    eqInputs.forEach(i => i.addEventListener('input', calcEq));
+    calcEq();
+
+    // Live preview
+    const nameEl = document.getElementById('name');
+    const stageEl = document.getElementById('stage');
+    const previewName = document.getElementById('previewName');
+    const previewStage = document.getElementById('previewStage');
+    const previewTag = document.getElementById('previewTag');
+    const previewTags = document.getElementById('previewTags');
+
+    function renderPreviewTags() {
+      previewTags.innerHTML = '';
+      tagList.querySelectorAll('span > span:first-child').forEach(s => {
+        const t = document.createElement('span');
+        t.className = 'rounded-full bg-slate-100 px-2.5 py-1';
+        t.textContent = s.textContent;
+        previewTags.appendChild(t);
+      });
+    }
+
+    function updatePreview() {
+      previewName.textContent = nameEl.value || 'Your Startup';
+      previewStage.textContent = stageEl.value || 'Stage';
+      previewTag.textContent = tagline.value || 'Tagline appears here.';
+    }
+    [nameEl, stageEl, tagline].forEach(el => el.addEventListener('input', updatePreview));
+    updatePreview();
+
+    // Simple preview button: scroll to card
+    document.getElementById('previewBtn').addEventListener('click', () => {
+      document.getElementById('previewCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // Submit (frontend only)
+    const form = document.getElementById('startupForm');
+    const modal = document.getElementById('successModal');
+    const closeModal = document.getElementById('closeModal');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!eqWarn.classList.contains('hidden')) return alert('Equity total must be 100%.');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    });
+    closeModal.addEventListener('click', () => {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Startup Network — My Profile</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="bg-white/90 backdrop-blur shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-fuchsia-500 via-indigo-500 to-blue-500 grid place-items-center text-white font-bold">U</div>
+          <div>
+            <div class="font-extrabold leading-tight">University of Startup</div>
+            <div class="text-xs text-slate-500">Startup Network</div>
+          </div>
+        </div>
+        <a href="profile-setup.html" class="rounded-xl bg-indigo-600 px-3 py-2 text-sm text-white hover:bg-indigo-700">Edit Profile</a>
+      </div>
+
+      <div class="mt-4 flex gap-6 border-b border-slate-200">
+        <a href="network.html" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600">Find a Startup</a>
+        <a href="profile-setup.html" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-indigo-600">Set Up Profile</a>
+        <a href="my-profile.html" class="px-3 py-2 text-sm font-medium border-b-2 border-indigo-600 text-indigo-600">My Profile</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="rounded-2xl overflow-hidden bg-white ring-1 ring-slate-100 shadow-sm">
+      <div id="cover" class="h-32 bg-gradient-to-r from-indigo-600 to-blue-600"></div>
+      <div class="p-6 -mt-10">
+        <img id="avatar" class="h-24 w-24 rounded-2xl ring-4 ring-white object-cover bg-slate-200" />
+        <h1 id="name" class="mt-3 text-2xl font-black">Your Name</h1>
+        <p id="headline" class="text-sm text-slate-600">Your headline</p>
+
+        <div id="badges" class="mt-3 flex flex-wrap gap-2 text-xs"></div>
+
+        <div class="mt-6 grid lg:grid-cols-3 gap-6">
+          <section class="lg:col-span-2">
+            <h2 class="text-sm font-semibold">About</h2>
+            <p id="about" class="mt-2 text-sm text-slate-700">Tell people what you’re building and why.</p>
+
+            <h2 class="mt-6 text-sm font-semibold">Experience</h2>
+            <ul id="exp" class="mt-2 space-y-3 text-sm"></ul>
+
+            <h2 class="mt-6 text-sm font-semibold">Education</h2>
+            <p id="edu" class="mt-2 text-sm"></p>
+          </section>
+
+          <aside>
+            <div class="rounded-2xl ring-1 ring-slate-100 shadow-sm p-5">
+              <h3 class="text-sm font-semibold">Skills</h3>
+              <div id="skills" class="mt-2 flex flex-wrap gap-2 text-xs"></div>
+            </div>
+
+            <div class="mt-4 rounded-2xl ring-1 ring-slate-100 shadow-sm p-5">
+              <h3 class="text-sm font-semibold">Links</h3>
+              <ul id="links" class="mt-2 space-y-1 text-sm text-indigo-700"></ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Load profile from localStorage or defaults
+    const defaults = {
+      name: "Aidil Khairi",
+      headline: "AI Engineer · Founder in Residence",
+      about: "I build practical AI products. Previously launched a campus delivery app; now focused on agents for SMB ops.",
+      availability: "Open to roles",
+      location: "Kuala Lumpur, MY",
+      skills: ["Python","Next.js","LLMs"],
+      experience: [
+        { company:"GardenAI", role:"AI Engineer (Founding)", period:"2025 – Present", location:"Kuala Lumpur" }
+      ],
+      education: { title:"B.Comp.Sc (Artificial Intelligence)", school:"University of Startup" },
+      links: [{label:"GitHub", url:"https://github.com/aidilkhairi"}, {label:"Website", url:"https://aidil.dev"}],
+      avatar: "", cover: ""
+    };
+
+    const data = JSON.parse(localStorage.getItem('uosProfile') || 'null') || defaults;
+
+    // Fill UI
+    const $ = id=>document.getElementById(id);
+    $('name').textContent = data.name;
+    $('headline').textContent = data.headline;
+    $('about').textContent = data.about;
+    $('edu').textContent = `${data.education.title}, ${data.education.school}`;
+
+    const badges = $('badges');
+    ['availability','location'].forEach(k=>{
+      const chip=document.createElement('span');
+      chip.className="rounded-full bg-slate-100 px-2.5 py-1";
+      chip.textContent = data[k];
+      badges.appendChild(chip);
+    });
+
+    const skills = $('skills');
+    (data.skills||[]).forEach(s=>{
+      const t=document.createElement('span');
+      t.className="rounded-full bg-slate-100 px-2.5 py-1";
+      t.textContent=s; skills.appendChild(t);
+    });
+
+    const exp = $('exp');
+    (data.experience||[]).forEach(e=>{
+      const li=document.createElement('li');
+      li.innerHTML = `<div class="font-medium">${e.company} — ${e.role}</div>
+                      <div class="text-xs text-slate-500">${e.period} · ${e.location}</div>`;
+      exp.appendChild(li);
+    });
+
+    const links = $('links');
+    (data.links||[]).forEach(l=>{
+      const li=document.createElement('li');
+      li.innerHTML = `<a href="${l.url}" class="hover:text-rose-600" target="_blank" rel="noreferrer">${l.label}</a>`;
+      links.appendChild(li);
+    });
+
+    const avatar = $('avatar');
+    if(data.avatar){ avatar.src = data.avatar; } else {
+      avatar.src = `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(data.name || 'U')}&backgroundType=gradientLinear`;
+    }
+    if(data.cover){
+      document.getElementById('cover').style.backgroundImage=`url(${data.cover})`;
+      document.getElementById('cover').style.backgroundSize='cover';
+      document.getElementById('cover').style.backgroundPosition='center';
+    }
+  </script>
+</body>
+</html>

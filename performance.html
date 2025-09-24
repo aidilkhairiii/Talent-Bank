@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UoS — Startup Performance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Nav -->
+  <header class="sticky top-0 z-40">
+    <div class="bg-white/80 backdrop-blur shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-fuchsia-500 via-indigo-500 to-blue-500 grid place-items-center text-white font-bold">U</div>
+          <span class="font-extrabold tracking-tight">University of Startup</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="dashboard.html" class="hover:text-red-600">Dashboard</a>
+          <a href="performance.html" class="text-indigo-600 font-semibold">Startup Performance</a>
+          <a href="network.html" class="hover:text-red-600">Startup Network</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <div class="h-9 w-9 rounded-full bg-indigo-600 grid place-items-center text-white text-sm font-semibold">AK</div>
+          <button class="text-sm hover:text-red-600">Aidil Khairi ▾</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    <!-- KPI Cards -->
+    <section class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="rounded-2xl bg-white p-5 ring-1 ring-slate-100 shadow-sm">
+        <div class="text-xs text-slate-500">MRR</div>
+        <div class="mt-1 text-2xl font-extrabold">RM 12,400</div>
+        <div class="mt-2 text-xs text-emerald-600">+12% MoM</div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 ring-1 ring-slate-100 shadow-sm">
+        <div class="text-xs text-slate-500">Users</div>
+        <div class="mt-1 text-2xl font-extrabold">3,480</div>
+        <div class="mt-2 text-xs text-emerald-600">+9% WoW</div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 ring-1 ring-slate-100 shadow-sm">
+        <div class="text-xs text-slate-500">Burn</div>
+        <div class="mt-1 text-2xl font-extrabold">RM 8,900</div>
+        <div class="mt-2 text-xs text-rose-600">-2% MoM</div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 ring-1 ring-slate-100 shadow-sm">
+        <div class="text-xs text-slate-500">Runway</div>
+        <div class="mt-1 text-2xl font-extrabold">13 months</div>
+        <div class="mt-2 text-xs text-slate-500">Grant + revenue</div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="grid lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm lg:col-span-2">
+        <div class="flex items-center justify-between">
+          <h3 class="font-semibold">Revenue & Active Users</h3>
+          <div class="text-xs text-slate-500">Last 12 months</div>
+        </div>
+        <canvas id="lineChart" class="mt-4"></canvas>
+      </div>
+
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+        <h3 class="font-semibold">Equity Split</h3>
+        <canvas id="donutChart" class="mt-4"></canvas>
+        <ul class="mt-4 text-xs text-slate-600 space-y-1">
+          <li>Founder A — 40%</li>
+          <li>Founder B — 35%</li>
+          <li>Founder C — 15%</li>
+          <li>Advisor Pool — 10%</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- OKRs / Milestones -->
+    <section class="grid lg:grid-cols-2 gap-6">
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+        <h3 class="font-semibold">Current OKRs</h3>
+        <div class="mt-4 space-y-4">
+          <div>
+            <div class="text-sm font-medium">Increase MRR to RM15k</div>
+            <div class="mt-2 h-2 bg-slate-200 rounded">
+              <div class="h-2 w-[70%] rounded bg-gradient-to-r from-fuchsia-500 to-indigo-600"></div>
+            </div>
+          </div>
+          <div>
+            <div class="text-sm font-medium">Cut churn to &lt; 2.5%</div>
+            <div class="mt-2 h-2 bg-slate-200 rounded">
+              <div class="h-2 w-[45%] rounded bg-gradient-to-r from-amber-400 to-pink-500"></div>
+            </div>
+          </div>
+          <div>
+            <div class="text-sm font-medium">Ship v2 onboarding</div>
+            <div class="mt-2 h-2 bg-slate-200 rounded">
+              <div class="h-2 w-[90%] rounded bg-gradient-to-r from-emerald-400 to-teal-600"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-100 shadow-sm">
+        <h3 class="font-semibold">Upcoming Milestones</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li class="flex justify-between"><span>Launch mobile beta</span><span class="text-slate-500">Oct 10</span></li>
+          <li class="flex justify-between"><span>Partnership MOU</span><span class="text-slate-500">Oct 28</span></li>
+          <li class="flex justify-between"><span>Demo Day</span><span class="text-slate-500">Nov 15</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Line chart
+    const lc = document.getElementById('lineChart');
+    new Chart(lc, {
+      type: 'line',
+      data: {
+        labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        datasets: [
+          {
+            label: 'MRR (RM)',
+            data: [2000,2600,3100,4100,5200,6800,7800,9000,10400,11400,12100,12400],
+            fill: false,
+            borderColor: '#4f46e5',
+            tension: .35
+          },
+          {
+            label: 'Active Users',
+            data: [300,420,610,800,1050,1400,1680,1970,2350,2700,3120,3480],
+            borderColor: '#f43f5e',
+            tension: .35,
+            yAxisID: 'y1'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        interaction: { mode: 'index', intersect: false },
+        plugins: { legend: { position: 'bottom' } },
+        scales: {
+          y: { beginAtZero: false },
+          y1: { position: 'right', grid: { drawOnChartArea: false } }
+        }
+      }
+    });
+
+    // Donut chart
+    const dc = document.getElementById('donutChart');
+    new Chart(dc, {
+      type: 'doughnut',
+      data: {
+        labels: ['Founder A','Founder B','Founder C','Advisor Pool'],
+        datasets: [{
+          data: [40,35,15,10],
+          backgroundColor: ['#ef4444','#6366f1','#06b6d4','#f59e0b']
+        }]
+      },
+      options: { plugins: { legend: { position: 'bottom' } }, cutout: '60%' }
+    });
+  </script>
+</body>
+</html>

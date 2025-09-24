@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>University of Startup — Build from Day 1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <!-- Top Nav -->
+  <header class="sticky top-0 z-40">
+    <div class="bg-white/80 backdrop-blur shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-fuchsia-500 via-indigo-500 to-blue-500 grid place-items-center text-white font-bold">U</div>
+          <span class="font-extrabold tracking-tight">University of Startup</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#how" class="hover:text-red-600 transition">How it works</a>
+          <a href="#tracks" class="hover:text-red-600 transition">Tracks</a>
+          <a href="#stories" class="hover:text-red-600 transition">Stories</a>
+          <a href="network.html" class="hover:text-red-600 transition">Startup Network</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="network.html" class="hidden sm:inline-flex px-3 py-2 rounded-lg border border-slate-200 hover:border-red-300 hover:text-red-600 transition">Explore Startups</a>
+          <a href="dashboard.html" class="inline-flex px-4 py-2 rounded-lg bg-indigo-600 text-white font-medium shadow hover:bg-indigo-700 transition">Student Portal</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-fuchsia-50 via-indigo-50 to-blue-50"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-black tracking-tight">
+          Build your <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-blue-600">startup</span> while you study.
+        </h1>
+        <p class="mt-5 text-lg text-slate-600">
+          Year 1: master fundamentals. Special Semester: either launch your own venture or join a batch startup.
+          Real customers. Real revenue. Real equity.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="dashboard.html" class="px-5 py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:bg-indigo-700">Enter Student Portal</a>
+          <a href="network.html" class="px-5 py-3 rounded-xl border border-slate-200 hover:border-red-300 hover:text-red-600">Find a Startup</a>
+        </div>
+        <div class="mt-8 flex items-center gap-6 text-sm text-slate-500">
+          <div class="flex -space-x-2">
+            <span class="h-8 w-8 rounded-full bg-fuchsia-500/80 border-2 border-white"></span>
+            <span class="h-8 w-8 rounded-full bg-indigo-500/80 border-2 border-white"></span>
+            <span class="h-8 w-8 rounded-full bg-blue-500/80 border-2 border-white"></span>
+          </div>
+          <span>3,200+ active builders · 600+ venture teams</span>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="rounded-2xl bg-white shadow-xl ring-1 ring-slate-100 p-6">
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=60" alt="Builders" class="rounded-xl">
+          <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+            <div class="rounded-xl bg-slate-50 p-3">
+              <div class="text-2xl font-extrabold">98%</div>
+              <div class="text-xs text-slate-500">Team-matching success</div>
+            </div>
+            <div class="rounded-xl bg-slate-50 p-3">
+              <div class="text-2xl font-extrabold">12 mo</div>
+              <div class="text-xs text-slate-500">Median runway</div>
+            </div>
+            <div class="rounded-xl bg-slate-50 p-3">
+              <div class="text-2xl font-extrabold">RM4.5k+</div>
+              <div class="text-xs text-slate-500">Grad starting salary</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl font-black">How it works</h2>
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100">
+        <div class="h-10 w-10 rounded-lg bg-fuchsia-100 grid place-items-center text-fuchsia-700 font-bold">1</div>
+        <h3 class="mt-4 font-semibold">Year 1: Theory Sprint</h3>
+        <p class="mt-2 text-sm text-slate-600">CS, design, markets, finance & founder skills. Ship small weekly products.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100">
+        <div class="h-10 w-10 rounded-lg bg-indigo-100 grid place-items-center text-indigo-700 font-bold">2</div>
+        <h3 class="mt-4 font-semibold">Special Semester: Choose</h3>
+        <p class="mt-2 text-sm text-slate-600">Start your own venture or join a batch startup. Earn equity credits.</p>
+      </div>
+      <div class="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100">
+        <div class="h-10 w-10 rounded-lg bg-blue-100 grid place-items-center text-blue-700 font-bold">3</div>
+        <h3 class="mt-4 font-semibold">Demo Day</h3>
+        <p class="mt-2 text-sm text-slate-600">Pitch to alumni angels & partners. Transition to Performance Track.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tracks -->
+  <section id="tracks" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-2xl font-black">Tracks</h2>
+    <div class="mt-8 grid lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl p-6 bg-gradient-to-br from-fuchsia-500 to-indigo-600 text-white shadow-lg">
+        <h3 class="text-xl font-bold">Product & AI</h3>
+        <p class="mt-2 text-sm/relaxed text-white/90">LLMs, agents, product strategy, rapid UX, metrics.</p>
+      </div>
+      <div class="rounded-2xl p-6 bg-white ring-1 ring-slate-100 shadow-sm">
+        <h3 class="text-xl font-bold">Fintech & Ops</h3>
+        <p class="mt-2 text-sm/relaxed text-slate-600">Payments, risk, compliance, growth loops.</p>
+      </div>
+      <div class="rounded-2xl p-6 bg-white ring-1 ring-slate-100 shadow-sm">
+        <h3 class="text-xl font-bold">Impact & Climate</h3>
+        <p class="mt-2 text-sm/relaxed text-slate-600">Hardware + software ventures for real-world change.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-500 flex flex-wrap items-center justify-between gap-4">
+      <span>© 2025 University of Startup</span>
+      <div class="flex gap-6">
+        <a class="hover:text-red-600" href="network.html">Startup Network</a>
+        <a class="hover:text-red-600" href="dashboard.html">Student Portal</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
